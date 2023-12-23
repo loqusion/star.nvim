@@ -59,8 +59,6 @@ require("star").setup({
   auto_map = false,
 })
 
--- ...
-
 vim.keymap.set({ "n", "x" }, "*", function()
   require("star").star("star")
 end)
