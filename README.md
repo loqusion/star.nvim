@@ -67,7 +67,7 @@ require("star").setup({
 })
 ```
 
-## Example
+## Manual Keymapping
 
 If you want to set the keymaps yourself, you can do something like:
 
