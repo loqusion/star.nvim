@@ -50,23 +50,6 @@ end)
 
 </details>
 
-## Example
-
-If you want to set the keymaps yourself, you can do something like:
-
-```lua
-require("star").setup({
-  auto_map = false,
-})
-
-vim.keymap.set({ "n", "x" }, "*", function()
-  require("star").star("star")
-end)
-vim.keymap.set({ "n", "x" }, "g*", function()
-  require("star").star("gstar")
-end)
-```
-
 ## Options
 
 ```lua
@@ -82,6 +65,23 @@ require("star").setup({
   -- Set this to false if you want to do mapping yourself
   auto_map = true,
 })
+```
+
+## Example
+
+If you want to set the keymaps yourself, you can do something like:
+
+```lua
+require("star").setup({
+  auto_map = false,
+})
+
+vim.keymap.set({ "n", "x" }, "*", function()
+  require("star").star("star")
+end)
+vim.keymap.set({ "n", "x" }, "g*", function()
+  require("star").star("gstar")
+end)
 ```
 
 ## Credits
