@@ -4,7 +4,7 @@
 
 A simple plugin that makes star mappings (`*`, `g*`) behave more sensibly.
 
-- Cursor stays put instead of jumping to next search item
+- Cursor stays on current word instead of jumping to next search item
 - `#` and `g#` are the same as `*` and `g*` by default
 - Any mappings can be customized or disabled
 
