@@ -45,6 +45,7 @@ end
 local function get_word(is_visual)
   local cmd = is_visual and "y" or "yiw"
 
+  -- https://github.com/nvim-telescope/telescope.nvim/blob/f336f8cfab38a82f9f00df380d28f0c2a572f862/lua/telescope/builtin/__files.lua#L196-L199
   return yank_with_reg("v", function(reg)
     vim.cmd(([[noautocmd sil norm! "%s%s]]):format(reg, cmd))
   end)
