@@ -41,11 +41,11 @@ end
 local function map_for(action)
   if action == "star" then
     return function()
-      star()
+      star([[\<%s\>]])
     end
   elseif action == "gstar" then
     return function()
-      star([[\<%s\>]])
+      star()
     end
   end
 end
