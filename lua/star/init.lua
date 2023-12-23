@@ -51,7 +51,7 @@ local function get_word(is_visual)
 end
 
 ---@param action star.Action
----@param is_visual boolean
+---@param is_visual? boolean
 function M.star(action, is_visual)
   local fmt
   if is_visual or action == "gstar" then
@@ -62,6 +62,8 @@ function M.star(action, is_visual)
     vim.notify(("Unknown action: `%s`"):format(action), vim.log.levels.ERROR)
     return
   end
+
+  is_visual = vim.F.if_nil(vim.fn.mode() == "v")
 
   local word = get_word(is_visual)
   local item = fmt:format(word)
