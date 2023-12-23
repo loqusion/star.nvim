@@ -1,4 +1,12 @@
-# star.nvim
+<h1 align="center">
+  ✨ star.nvim
+</h1>
+
+A simple plugin that makes star mappings (`*`, `g*`) behave more sensibly.
+
+- Cursor stays put instead of jumping to next search item
+- `#` and `g#` are the same as `*` and `g*` by default
+- Any mappings can be customized or disabled
 
 ## Installation
 
@@ -8,10 +16,21 @@
 ```lua
 {
   "loqusion/star.nvim",
-  keys = { "*", "g*", "#", "g#" },
+  keys = {
+    { "*", mode = { "n", "x" } },
+    { "g*", mode = { "n", "x" } },
+    { "#", mode = { "n", "x" } },
+    { "g#", mode = { "n", "x" } },
+  },
   opts = {},
 }
 ```
+
+<!-- prettier-ignore-start -->
+> [!NOTE]
+> `lazy.nvim`'s `keys` doesn't affect how `star.nvim` assigns mappings; it only affects lazy-loading.
+> To configure the keys, use the `opts.keys` field.
+<!-- prettier-ignore-end -->
 
 </details>
 
@@ -47,3 +66,7 @@ require("star").setup({
   auto_map = true,
 })
 ```
+
+## Credits
+
+- [vim-star](https://github.com/linjiX/vim-star)
