@@ -26,13 +26,13 @@ A simple plugin that makes star mappings (`*`, `g*`) behave more sensibly.
 }
 ```
 
+</details>
+
 <!-- prettier-ignore-start -->
 > [!NOTE]
 > `lazy.nvim`'s `keys` doesn't affect how `star.nvim` assigns mappings; it only affects lazy-loading.
 > To configure the keys, use the `opts.keys` field.
 <!-- prettier-ignore-end -->
-
-</details>
 
 <details>
   <summary>Packer</summary>
