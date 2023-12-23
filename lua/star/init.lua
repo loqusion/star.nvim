@@ -29,7 +29,7 @@ end
 
 ---Return the value `fn` yanks into a register, after restoring the register
 ---@param reg string Register to yank into
----@param fn function A function which sets `reg` as its side effect
+---@param fn function A function which sets register `reg` as its side effect
 local function yank_with_reg(reg, fn)
   local saved_reg = vim.fn.getreg(reg)
   fn(reg)
