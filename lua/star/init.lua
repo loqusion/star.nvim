@@ -27,29 +27,32 @@ local function set_mode_normal()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
 end
 
----WARNING: This function assumes you are currently in visual mode.
----After executing, you will return to normal mode.
-local function get_visual_word()
-  -- https://github.com/nvim-telescope/telescope.nvim/blob/f336f8cfab38a82f9f00df380d28f0c2a572f862/lua/telescope/builtin/__files.lua#L196-L199
-  local saved_reg = vim.fn.getreg("v")
-  vim.cmd([[noautocmd sil norm "vy]])
-  local sele = vim.fn.getreg("v")
-  vim.fn.setreg("v", saved_reg)
-  return sele
+---Return the value `fn` yanks into a register, after restoring the register
+---@param reg string Register to yank into
+---@param fn function A function which sets `reg` as its side effect
+local function yank_with_reg(reg, fn)
+  local saved_reg = vim.fn.getreg(reg)
+  fn(reg)
+  local ret = vim.fn.getreg(reg)
+  vim.fn.setreg(reg, saved_reg)
+  return ret
 end
 
+---WARNING: This function has the side effect of moving the cursor position to the beginning of the selected word,
+---which is intended.
+---
 ---@param is_visual boolean
 local function get_word(is_visual)
-  if is_visual then
-    return get_visual_word()
-  end
+  local cmd = is_visual and "y" or "yiw"
 
-  return vim.fn.expand("<cword>")
+  return yank_with_reg("v", function(reg)
+    vim.cmd(([[noautocmd sil norm! "%s%s]]):format(reg, cmd))
+  end)
 end
 
 ---@param action star.Action
 ---@param is_visual boolean
-local function star(action, is_visual)
+function M.star(action, is_visual)
   local fmt
   if is_visual or action == "gstar" then
     fmt = "%s"
@@ -75,7 +78,7 @@ end
 ---@param is_visual boolean
 local function map_for(action, is_visual)
   return function()
-    star(action, is_visual)
+    M.star(action, is_visual)
   end
 end
 
