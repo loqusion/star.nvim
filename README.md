@@ -1,5 +1,5 @@
 <h1 align="center">
-  ✨ star.nvim
+  ⭐ star.nvim
 </h1>
 
 A simple plugin that makes star mappings (`*`, `g*`) behave more sensibly.
