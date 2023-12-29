@@ -26,15 +26,13 @@ A simple plugin that makes star mappings (`*`, `g*`) behave more sensibly.
 }
 ```
 
+<aside><code>lazy.nvim</code>'s <code>keys</code> doesn't affect how <code>star.nvim</code> assigns mappings; it only affects lazy-loading.
+To configure the keys, use the <code>opts.keys</code> field (or set <code>opts.auto_map</code> to <code>false</code> and <a href="#manual-keymaps">do mappings
+yourself</a>).</aside>
+
 </details>
 
-<!-- prettier-ignore-start -->
-<!-- NOTE: Moving this inside the <details> above makes GitHub not render it correctly -->
-> [!NOTE]
-> `lazy.nvim`'s `keys` doesn't affect how `star.nvim` assigns mappings; it only affects lazy-loading.
-> To configure the keys, use the `opts.keys` field (or set `opts.auto_map` to `false` and [do mappings
-> yourself](#manual-keymaps)).
-<!-- prettier-ignore-end -->
+
 
 <details>
   <summary>Packer</summary>
@@ -84,6 +82,18 @@ end)
 vim.keymap.set({ "n", "x" }, "g*", function()
   require("star").star("gstar")
 end)
+
+-- or with lazy.nvim:
+{
+  "loqusion/star.nvim",
+  keys = {
+    { "*", function() require("star").star("star") end },
+    { "g*", function() require("star").star("gstar") end },
+  },
+  opts = {
+    auto_map = false,
+  },
+}
 ```
 
 ## Credits
