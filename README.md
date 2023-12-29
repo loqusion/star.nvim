@@ -26,13 +26,13 @@ A simple plugin that makes star mappings (`*`, `g*`) behave more sensibly.
 }
 ```
 
-<aside><code>lazy.nvim</code>'s <code>keys</code> doesn't affect how <code>star.nvim</code> assigns mappings; it only affects lazy-loading.
-To configure the keys, use the <code>opts.keys</code> field (or set <code>opts.auto_map</code> to <code>false</code> and <a href="#manual-keymaps">do mappings
-yourself</a>).</aside>
+<aside>
+  <code>lazy.nvim</code>'s <code>keys</code> doesn't affect how <code>star.nvim</code> assigns mappings; it only affects
+  lazy-loading. To configure the keys, use the <code>opts.keys</code> field (or set <code>opts.auto_map</code> to
+  <code>false</code> and <a href="#manual-keymaps">do mappings yourself</a>).
+</aside>
 
 </details>
-
-
 
 <details>
   <summary>Packer</summary>
