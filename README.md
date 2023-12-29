@@ -32,7 +32,8 @@ A simple plugin that makes star mappings (`*`, `g*`) behave more sensibly.
 <!-- NOTE: Moving this inside the <details> above makes GitHub not render it correctly -->
 > [!NOTE]
 > `lazy.nvim`'s `keys` doesn't affect how `star.nvim` assigns mappings; it only affects lazy-loading.
-> To configure the keys, use the `opts.keys` field.
+> To configure the keys, use the `opts.keys` field (or set `opts.auto_map` to `false` and [do mappings
+> yourself](#manual-keymaps).
 <!-- prettier-ignore-end -->
 
 <details>
