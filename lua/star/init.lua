@@ -57,7 +57,9 @@ function M.star(action, is_visual)
   is_visual = vim.F.if_nil(is_visual, vim.fn.mode() == "v")
 
   local fmt
-  if is_visual or action == "gstar" then
+  if is_visual then
+    fmt = [[\V%s]]
+  elseif action == "gstar" then
     fmt = "%s"
   elseif action == "star" then
     fmt = [[\<%s\>]]
