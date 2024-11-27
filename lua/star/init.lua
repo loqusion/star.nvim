@@ -58,11 +58,11 @@ function M.star(action, is_visual)
 
   local fmt
   if is_visual then
-    fmt = [[\V%s]]
+    fmt = [[\C\V%s]]
   elseif action == "gstar" then
-    fmt = "%s"
+    fmt = [[\C%s]]
   elseif action == "star" then
-    fmt = [[\<%s\>]]
+    fmt = [[\C\<%s\>]]
   else
     vim.notify(("Unknown action: `%s`"):format(action), vim.log.levels.ERROR)
     return
